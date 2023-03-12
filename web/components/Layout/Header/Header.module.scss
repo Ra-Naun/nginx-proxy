@@ -1,0 +1,29 @@
+.headerWrapper {
+  width: 100%;
+  background-color: rgba(color('green'), 0.4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  &__logo {
+    order: 1;
+  }
+
+  &__navigation {
+    order: 2;
+    @include laptop {
+      order: 3;
+    }
+  }
+
+  &__social {
+    order: 3;
+    @include laptop {
+      order: 2;
+    }
+  }
+}

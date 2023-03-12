@@ -1,0 +1,18 @@
+.links {
+  margin-top: indent('XXL');
+  padding: indent('L');
+  border-radius: 15px;
+
+  width: 100%;
+  /* Note: backdrop-filter has minimal browser support */
+  backdrop-filter: blur(24px);
+  background-color: rgba(color('green'), 0.2);
+
+  &__item {
+    list-style: none;
+
+    &:not(:first-child) {
+      margin-top: indent('L');
+    }
+  }
+}

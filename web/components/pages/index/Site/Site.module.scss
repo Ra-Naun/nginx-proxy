@@ -1,0 +1,24 @@
+.site {
+  display: flex;
+  flex-direction: column;
+  padding: indent('L');
+
+  /* Note: backdrop-filter has minimal browser support */
+  backdrop-filter: blur(24px);
+
+  background-color: rgba(color('green'), 0.5);
+  opacity: 0.8;
+
+  border-radius: 15px;
+
+  white-space: nowrap;
+
+  &_is-active {
+    opacity: 1;
+  }
+
+  &__save-btn {
+    align-self: center;
+    width: 200px;
+  }
+}

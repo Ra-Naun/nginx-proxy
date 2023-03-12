@@ -1,0 +1,15 @@
+.addSiteForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.addBtn {
+  margin: 0;
+}
+
+.site {
+  margin-top: indent('L');
+  width: 100%;
+}

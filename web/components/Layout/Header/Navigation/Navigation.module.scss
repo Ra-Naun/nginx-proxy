@@ -1,0 +1,20 @@
+.navigation {
+  display: flex;
+  align-items: center;
+
+  &__burgerIsHiden {
+    display: none;
+
+    @include laptop {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: block;
+
+    @include laptop {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.logo {
+  display: flex;
+  align-items: center;
+
+  transition: transform 200ms;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: color('green-light');
+    width: 80px;
+  }
+}

@@ -1,0 +1,39 @@
+@use 'sass:map';
+
+//
+$indents: (
+  'S': 5px,
+  'M': 10px,
+  'L': 20px,
+  'XL': 30px,
+  'XXL': 72px,
+  'XXXL': 115px,
+);
+
+@function indent($indent) {
+  @return map.get($indents, $indent);
+}
+
+//
+$colors: (
+  'green-light': #375a32,
+  'green': #2b4427,
+  'green-dark': #1e311c,
+  'black': #404040,
+  'white': rgb(255, 255, 255),
+);
+
+@function color($color) {
+  @return map.get($colors, $color);
+}
+
+//
+$font-sizes: (
+  'big': 32px,
+  'medium': 24px,
+  'small': 16px,
+);
+
+@function font-size($fs) {
+  @return map.get($font-sizes, $fs);
+}

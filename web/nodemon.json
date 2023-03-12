@@ -1,0 +1,21 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/**/node_modules", ".next", "**/*.client.js"],
+  "verbose": true,
+  "ext": "ts, json, mjs, mts, cts, cjs",
+  "exec": "node -r tsconfig-paths/register --loader ./tools/esm-loader.js ./server/run.ts",
+  "env": {
+    "NODE_ENV": "development",
+    "NODE_MODULES": "node_modules"
+  },
+  "watch": [
+    "config",
+    "middlewares",
+    "public",
+    "server",
+    "services",
+    "utils",
+    "middleware.ts",
+    "next.config.mjs"
+  ]
+}

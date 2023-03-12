@@ -1,0 +1,36 @@
+.link {
+  color: color('green');
+  text-decoration: none;
+  white-space: nowrap;
+
+  background: linear-gradient(to right, transparent, transparent),
+    linear-gradient(to right, color('green'), #24af02, color('green'));
+
+  background-size: 100% 3px, 0 3px;
+
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+
+  transition: background-size 200ms;
+
+  &:active,
+  &:hover,
+  &:focus {
+    outline: none;
+    outline-offset: 0;
+    color: color('green');
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-size: 0 3px, 100% 3px;
+  }
+
+  &__active {
+    background-size: 0 3px, 100% 3px;
+  }
+
+  &:not(:first-child) {
+    margin-left: indent('XL');
+  }
+}

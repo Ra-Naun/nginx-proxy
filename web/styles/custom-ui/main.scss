@@ -1,0 +1,35 @@
+//==============================================================================
+// Components
+//==============================================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+// FORMS
+.form-group {
+  display: flex;
+  gap: indent('M');
+}
+
+.button,
+a.button,
+button,
+[type='submit'],
+[type='reset'],
+[type='button'] {
+  background-color: color('green');
+  border-color: color('green-dark');
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: color('green-light');
+    border-color: color('green');
+  }
+}

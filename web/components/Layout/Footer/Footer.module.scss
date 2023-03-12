@@ -1,0 +1,25 @@
+.footer {
+  width: 100%;
+  position: relative;
+
+  &__fon {
+    display: block;
+    width: 100%;
+  }
+
+  &__copyright {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+
+    font-size: font-size('big');
+    text-align: center;
+  }
+}

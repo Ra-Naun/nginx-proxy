@@ -1,0 +1,19 @@
+.sitesPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  &__buildBtn {
+    margin-bottom: indent('L');
+  }
+}
+
+.addSiteForm {
+  margin-bottom: indent('L');
+}
+
+.buildNginxConf {
+  margin-bottom: indent('L');
+}
