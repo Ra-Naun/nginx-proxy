@@ -4,7 +4,7 @@
 
 ATTEMPTS_5s=1000;
 ATTEMPTS_10s=1000;
-ATTEMPTS_60s=1000;
+ATTEMPTS_30s=1000;
 
 while true;
 do
@@ -14,10 +14,10 @@ do
     elif [ $ATTEMPTS_10s -gt 0 ]; then
         sleep 10;
         ATTEMPTS_10s=$((ATTEMPTS_10s-1))
-    elif [ $ATTEMPTS_60s -gt 0 ]; then
-        sleep 60;
-        ATTEMPTS_60s=$((ATTEMPTS_60s-1))
-    else sleep 600;
+    elif [ $ATTEMPTS_30s -gt 0 ]; then
+        sleep 30;
+        ATTEMPTS_30s=$((ATTEMPTS_30s-1))
+    else break;
     fi
 
     ./docker/nginx/files/dockerhost/in-host/get-ip.sh; 
