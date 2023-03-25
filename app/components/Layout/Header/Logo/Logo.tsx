@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 // components:
 import type { FC } from 'react';
-import Image from 'next/future/image';
 import Link from 'next/link';
 import NginxIcon from './images/NginxIcon';
 

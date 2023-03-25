@@ -10,7 +10,6 @@ const __dirname = path.dirname(__filename);
  */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   env: {
     DOMAIN: process.env.DOMAIN || '', // Если нужно использовать и на клиенте и на сервере
   },

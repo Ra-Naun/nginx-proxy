@@ -69,8 +69,7 @@ if [ -z "$MODE" ]; then
   exit 1;
 fi
 
-# NGINX_PATH="-f ./docker-compose/nginx.$MODE.yml"
-NGINX_PATH="-f ./docker-compose/nginx.$MODE.yml"
+NGINX_PATH="-f ./docker-compose.$MODE.yml"
 
 if [ $IS_LOGS == true ];
 then
@@ -93,8 +92,8 @@ else
   echo "Clear"
   docker system prune -f --volumes
 
-  # if [ ! -z "$D" ]; then
+  if [ ! -z "$D" ]; then
     # обновляем IP хоста, после запуска контейнера IP зачастую сдвигается
     ./docker/nginx/files/dockerhost/in-host/get-ip.sh
-  # fi
+  fi
 fi

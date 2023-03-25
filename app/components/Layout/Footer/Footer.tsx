@@ -12,7 +12,13 @@ const Footer: FC<{}> = () => {
 
   return (
     <footer className={styles.footer}>
-      <Image className={styles.footerFon} src={data.banner.image} alt={data.banner.alt} />
+      <Image
+        className={styles.footerFon}
+        src={data.banner.image}
+        alt={data.banner.alt}
+        width={1920}
+        height={240}
+      />
       <div className={styles.footerCopyright}>
         © Copyright {new Date().getFullYear()}. nginx-proxy. All rights reserved.
       </div>

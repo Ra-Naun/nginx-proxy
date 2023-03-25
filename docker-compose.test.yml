@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./logs/test/nginx:/var/log/nginx
+      - ./docker/nginx/files/dockerhost/file/:/etc/docker-host/
+      - ./docker/nginx/files/nginx.conf/file/:/etc/nginx.conf/
+    restart: always
+
+  nginx-web-interface-test:
+    container_name: nginx-web-interface-test
+    build:
+      context: .
+      dockerfile: ./docker/web/test/Dockerfile
+    env_file:
+      - ./docker/web/test/web.env
+    ports:
+      - '3099:3099'
+    volumes:
+      - ./docker/nginx/files/nginx.conf/file/:/etc/nginx.conf/
+    restart: always

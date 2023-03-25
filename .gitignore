@@ -40,4 +40,4 @@ yarn-error.log*
 data
 logs
 temp
-file/file
+docker/nginx/**/file

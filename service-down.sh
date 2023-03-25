@@ -44,8 +44,7 @@ if [ -z "$MODE" ]; then
   exit 1;
 fi
 
-NGINX_PATH="-f ./docker-compose/nginx.$MODE.yml"
-printf "NGINX_PATH: $NGINX_PATH \n"
+NGINX_PATH="-f ./docker-compose.$MODE.yml"
 
 # echo "Down Existing containers"
 docker compose $NGINX_PATH down

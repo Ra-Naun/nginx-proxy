@@ -1,10 +1,10 @@
 FROM node:18.12.1-alpine
 
-WORKDIR /web
+WORKDIR /app
 
-COPY ./web/package.json ./web/yarn.lock /web/
+COPY ./app/package.json ./app/yarn.lock /app/
 
-COPY ./web /web
+COPY ./app /app
 
 RUN rm -rf ./.next ./node_modules
 
