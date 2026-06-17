@@ -7,19 +7,28 @@ class _NginxConfBuilder {
   private getNginxConfig = (sites: Site[]) => {
     type GetServer = (params: {
       domain: string;
+      isWwwCanonical?: boolean;
       port: number;
       ip?: string;
       isExternal: boolean;
     }) => string;
 
-    const getServer: GetServer = ({ domain, port, ip, isExternal }) => `
+    const getServer: GetServer = ({ domain, isWwwCanonical = true, port, ip, isExternal }) => {
+      const canonicalDomain = isWwwCanonical ? `www.${domain}` : domain;
+      const redirectDomain = isWwwCanonical ? domain : `www.${domain}`;
+      const canonicalCertificate = `/etc/nginx/certs/${canonicalDomain}.crt`;
+      const redirectCertificate = isWwwCanonical
+        ? canonicalCertificate
+        : `/etc/nginx/certs/${redirectDomain}.crt`;
+
+      return `
   
   
     server {
     listen 443 ssl${/.*nginx.proxy.*/.test(domain) ? ' default_server' : ''};
-      server_name www.${domain};
+      server_name ${canonicalDomain};
   
-      ssl_certificate     /etc/nginx/certs/www.${domain}.crt;
+      ssl_certificate     ${canonicalCertificate};
       ssl_certificate_key /etc/nginx/certs/server.key;
   
       location / {
@@ -42,21 +51,22 @@ class _NginxConfBuilder {
   
     server {
       listen 443 ssl;
-      server_name ${domain};
+      server_name ${redirectDomain};
   
-      ssl_certificate     /etc/nginx/certs/www.${domain}.crt;
+      ssl_certificate     ${redirectCertificate};
       ssl_certificate_key /etc/nginx/certs/server.key;
   
-      return 301 https://www.${domain}$request_uri;
+      return 301 https://${canonicalDomain}$request_uri;
     }
   
     server {
       listen 80${/.*nginx.proxy.*/.test(domain) ? ' default_server' : ''};
       server_name ${domain} www.${domain};
   
-      return 301 https://www.$host$request_uri;
+      return 301 https://${canonicalDomain}$request_uri;
     }
     \n`;
+    };
 
     const servers = sites.map((site) => getServer(site.dns)).join('');
 

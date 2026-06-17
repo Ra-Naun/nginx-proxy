@@ -2,6 +2,7 @@ export type Site = {
   id: string;
   dns: {
     domain: string;
+    isWwwCanonical?: boolean;
     isExternal: boolean;
     ip?: string;
     port: number;

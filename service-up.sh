@@ -90,7 +90,7 @@ else
   docker compose $NGINX_PATH up $D;
 
   echo "Clear"
-  docker system prune -f --volumes
+  # docker system prune -f --volumes
 
   if [ ! -z "$D" ]; then
     # обновляем IP хоста, после запуска контейнера IP зачастую сдвигается

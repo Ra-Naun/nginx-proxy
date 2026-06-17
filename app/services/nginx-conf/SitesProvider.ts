@@ -37,6 +37,16 @@ const sitesInitialState: Site[] = [
     },
     isActive: false,
   },
+  {
+    id: '5',
+    dns: {
+      domain: 'strapi.nebons007.comdev',
+      isWwwCanonical: false,
+      port: 1437,
+      isExternal: false,
+    },
+    isActive: true,
+  },
 ];
 
 class SitesProvider {
